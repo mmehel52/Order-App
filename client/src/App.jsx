@@ -1,5 +1,6 @@
-import Categories from "./components/header/Categories";
-import Header from "./components/header/Header";
+import CartTotals from "./components/CartTotals";
+import Categories from "./components/Categories";
+import Header from "./components/Header";
 import Products from "./components/Products";
 
 function App() {
@@ -7,16 +8,14 @@ function App() {
     <>
       <Header />
       <div className="home px-6 flex justify-between gap-10">
-        <div className="categories flex-1 overflow-auto max-h-[calc(100vh-_-112px)] pb-6">
+        <div className="categories  overflow-auto max-h-[calc(100vh-_-112px)] pb-6">
           <Categories />
         </div>
         <div className="products flex-[8]">
-          <div>
-            <Products />
-          </div>
+          <Products />
         </div>
-        <div>
-          <div>cart totals</div>
+        <div className="car-wrapper min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">
+          <CartTotals />
         </div>
       </div>
     </>
