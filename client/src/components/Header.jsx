@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   SearchOutlined,
   HomeOutlined,
@@ -14,9 +15,9 @@ const Header = () => {
     <div className="border-b mb-6">
       <header className="py-4 px-6 flex justify-between items-center gap-10">
         <div className="logo">
-          <a href={"/"}>
+          <Link to={"/"}>
             <h5 className="text-2x1 font-bold md:text-4x1">LOGO</h5>
-          </a>
+          </Link>
         </div>
         <div className="header-search flex-1 flex justify-center">
           <Input
@@ -27,62 +28,62 @@ const Header = () => {
           />
         </div>
         <div className="menu-links flex justify-between items-center gap-6 md:static fixed z-50 bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1">
-          <a
-            href={"/"}
+          <Link
+            to={"/"}
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
           >
             <HomeOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Home</span>
-          </a>
+          </Link>
           <Badge count={5} offset={[6, -3]} className="md:flex hidden">
-            <a
-              href={"/"}
+            <Link
+              to={"/"}
               className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
             >
               <ShoppingCartOutlined className="md:text-2x1 text-x1" />
 
               <span className="md:text-xs text-[10px]">Box</span>
-            </a>
+            </Link>
           </Badge>
-          <a
-            href={"/"}
+          <Link
+            to={"/"}
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
           >
             <CopyOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Bills</span>
-          </a>
-          <a
-            href={"/"}
+          </Link>
+          <Link
+            to={"/"}
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
           >
             <UserOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Customers</span>
-          </a>
+          </Link>
 
-          <a
-            href={"/"}
+          <Link
+            to={"/"}
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
           >
             <BarChartOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Statistics</span>
-          </a>
-          <a
-            href={"/"}
+          </Link>
+          <Link
+            to={"/"}
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
           >
             <LogoutOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Logout</span>
-          </a>
+          </Link>
         </div>
         <Badge count={5} offset={[6, -3]} className="md:hidden flex">
-          <a
-            href={"/"}
+          <Link
+            to={"/"}
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
           >
             <ShoppingCartOutlined className="text-2x1 text-x1" />
 
             <span className="md:text-xs text-[10px]">Box</span>
-          </a>
+          </Link>
         </Badge>
       </header>
     </div>
