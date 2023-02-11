@@ -49,7 +49,7 @@ const Header = () => {
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
           >
             <CopyOutlined className="md:text-2x1 text-x1" />
-            <span className="md:text-xs text-[10px]">Doc</span>
+            <span className="md:text-xs text-[10px]">Bills</span>
           </a>
           <a
             href={"/"}
