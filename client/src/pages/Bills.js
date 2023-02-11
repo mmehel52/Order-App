@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Table, Card, Button } from "antd";
-import CreateBill from "../components/CreateBill";
+import PrintBills from "../components/PrintBills";
 
-const CardPage = () => {
+const BillPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dataSource = [
     {
@@ -40,6 +40,7 @@ const CardPage = () => {
   return (
     <div>
       <div className="px-6">
+        <h1 className="text-4xl font-bold text-center mb-4">Bills</h1>
         <Table
           dataSource={dataSource}
           columns={columns}
@@ -48,32 +49,20 @@ const CardPage = () => {
         />
         <div className="cart-total flex justify-end mt-4">
           <Card className="w-72">
-            <div className="flex justify-between">
-              <span>Sub Total</span>
-              <span>549.00₺</span>
-            </div>
-            <div className="flex justify-between">
-              <span>KDV Total %8</span>
-              <span className="text-red-600">44.00₺</span>
-            </div>
-            <div className="flex justify-between">
-              <b>Total</b>
-              <b>549.00₺</b>
-            </div>
             <Button
               size="large"
               className="mt-4 w-full"
               type="primary"
               onClick={() => setIsModalOpen(true)}
             >
-              Create Order
+              Print
             </Button>
           </Card>
         </div>
       </div>
-      <CreateBill isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <PrintBills isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </div>
   );
 };
 
-export default CardPage;
+export default BillPage;
