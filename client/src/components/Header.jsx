@@ -37,7 +37,7 @@ const Header = () => {
           </Link>
           <Badge count={5} offset={[6, -3]} className="md:flex hidden">
             <Link
-              to={"/"}
+              to={"/card"}
               className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
             >
               <ShoppingCartOutlined className="md:text-2x1 text-x1" />

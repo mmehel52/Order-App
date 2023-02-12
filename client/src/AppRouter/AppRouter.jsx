@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Bills from "../pages/Bills";
 import Card from "../pages/Card";
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path="/customers" element={<Customers />} />
       <Route path="/statistics" element={<Statistics />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };
