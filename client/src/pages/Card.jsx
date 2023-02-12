@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Table, Card, Button } from "antd";
 import CreateBill from "../components/CreateBill";
+import Header from "../components/Header";
 
 const CardPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,6 +40,7 @@ const CardPage = () => {
 
   return (
     <div>
+      <Header />
       <div className="px-6">
         <Table
           dataSource={dataSource}

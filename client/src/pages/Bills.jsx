@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Table, Card, Button } from "antd";
 import PrintBills from "../components/PrintBills";
-
+import Header from "../components/Header";
 const BillPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dataSource = [
@@ -39,6 +39,7 @@ const BillPage = () => {
 
   return (
     <div>
+      <Header />
       <div className="px-6">
         <h1 className="text-4xl font-bold text-center mb-4">Bills</h1>
         <Table

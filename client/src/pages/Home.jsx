@@ -2,10 +2,12 @@ import React from "react";
 import CartTotals from "../components/CartTotals";
 import Categories from "../components/Categories";
 import Products from "../components/Products";
+import Header from "../components/Header";
 
 const Home = () => {
   return (
     <>
+      <Header />
       <div className="home px-6 flex md:flex-row flex-col justify-between gap-10 md:pb-0 pb-24">
         <div className="categories  overflow-auto max-h-[calc(100vh112px)] md:pb-10 ">
           <Categories />

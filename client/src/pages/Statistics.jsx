@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Area, Pie } from "@ant-design/plots";
 import StatisticCard from "../components/StatisticCard";
-
+import Header from "../components/Header";
 const Statistics = () => {
   const [data, setData] = useState([]);
   const data2 = [
@@ -90,6 +90,7 @@ const Statistics = () => {
   };
   return (
     <div className="px-6 md:pb-0 pb-20">
+      <Header />
       <h1 className="text-4xl font-bold text-center mb-4">Bills</h1>
       <div className="statistic-section">
         <h2 className="text-lg">
