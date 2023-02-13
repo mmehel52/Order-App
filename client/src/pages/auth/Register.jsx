@@ -33,8 +33,17 @@ const Register = () => {
             <Form.Item
               label="Password Again"
               name={"passwordAgain"}
+              dependencies={["password"]}
               rules={[
                 { required: true, message: "Password again is required" },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(new Error("Password must be same!"));
+                  },
+                }),
               ]}
             >
               <Input.Password />
