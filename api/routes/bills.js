@@ -9,6 +9,7 @@ router.get("/get-all", async (req, res) => {
     res.status(200).json(bills);
   } catch (error) {
     console.log(error);
+    res.status(500).json(error);
   }
 });
 
@@ -19,7 +20,7 @@ router.post("/add-bill", async (req, res) => {
     await newBill.save();
     res.status(200).json("Item added successfully.");
   } catch (error) {
-    res.status(400).json(error);
+    res.status(500).json(error);
   }
 });
 
