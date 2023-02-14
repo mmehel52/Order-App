@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CartTotals from "../components/CartTotals";
-import Categories from "../components/Categories";
+import Categories from "../components/categories/Categories";
 import Products from "../components/Products";
 import Header from "../components/Header";
 
