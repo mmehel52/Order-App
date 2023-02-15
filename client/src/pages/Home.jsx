@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CartTotals from "../components/CartTotals";
 import Categories from "../components/categories/Categories";
-import Products from "../components/Products";
+import Products from "../components/products/Products";
 import Header from "../components/Header";
 
 const Home = () => {
@@ -12,7 +12,12 @@ const Home = () => {
       try {
         const res = await fetch("http://localhost:5000/api/categories/get-all");
         const data = await res.json();
-        setCategories(data);
+        data &&
+          setCategories(
+            data.map((item) => {
+              return { ...item, value: item?.title };
+            })
+          );
       } catch (error) {
         console.log(error);
       }
@@ -28,7 +33,7 @@ const Home = () => {
           <Categories categories={categories} setCategories={setCategories} />
         </div>
         <div className="products flex-[8] overflow-y-auto max-h-[calc(100vh_-_112px)] pb-10">
-          <Products />
+          <Products categories={categories} setCategories={setCategories} />
         </div>
         <div className="car-wrapper  min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">
           <CartTotals />

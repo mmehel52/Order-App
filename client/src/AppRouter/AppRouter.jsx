@@ -5,6 +5,7 @@ import Bills from "../pages/Bills";
 import Card from "../pages/Card";
 import Customers from "../pages/Customers";
 import Home from "../pages/Home";
+import Product from "../pages/Product";
 import Statistics from "../pages/Statistics";
 
 const AppRouter = () => {
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path="/bills" element={<Bills />} />
       <Route path="/customers" element={<Customers />} />
       <Route path="/statistics" element={<Statistics />} />
+      <Route path="/products" element={<Product />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
     </Routes>
