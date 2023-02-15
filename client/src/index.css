@@ -22,7 +22,7 @@ body {
     background-color: #1677ff;
   }
 
-  /* .categories::-webkit-scrollbar {
+  .categories::-webkit-scrollbar {
     display: none;
-  } */
+  }
 }

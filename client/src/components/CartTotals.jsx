@@ -5,294 +5,50 @@ import {
   PlusCircleOutlined,
   MinusCircleOutlined,
 } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCart } from "./../redux/cartSlice";
 
 const CartTotals = () => {
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   return (
     <div className="cart h-full max-h-[calc(100vh_-_90px)] flex flex-col">
       <h2 className="bg-blue-600 text-center py-4 text-white font-bold tracking-wide">
         Products in Box
       </h2>
       <ul className="car-items px-2 flex flex-col gap-y-3 py-2 overflow-y-auto">
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
+        {cartItems.map((item) => (
+          <li
+            className="cart-item flex justify-between"
+            key={item._id}
+            onClick={() => dispatch(deleteCart(item))}
+          >
+            <div className="flex items-center">
+              <img src={item.img} alt="" className="w-16 h-16 object-cover" />
+              <div className="flex flex-col ml-2">
+                <b>{item.title}</b>
+                <span>
+                  {item.price}₺ x {item.quantity}
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
+            <div className="flex items-center gap-x-1">
+              <Button
+                type="primary"
+                size="middle"
+                className="w-full flex items-center justify-center rounded-full"
+                icon={<PlusCircleOutlined />}
+              />
+              <span>{item.quantity}</span>
+              <Button
+                type="primary"
+                size="middle"
+                className="w-full flex items-center justify-center rounded-full"
+                icon={<MinusCircleOutlined />}
+              />
             </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
-        <li className="cart-item flex justify-between">
-          <div className="flex items-center">
-            <img
-              src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-              alt=""
-              className="w-16 h-16 object-cover"
-            />
-            <div className="flex flex-col ml-2">
-              <b>Elma</b>
-              <span>12₺ x 2</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<PlusCircleOutlined />}
-            />
-            <span>1</span>
-            <Button
-              type="primary"
-              size="middle"
-              className="w-full flex items-center justify-center rounded-full"
-              icon={<MinusCircleOutlined />}
-            />
-          </div>
-        </li>
+          </li>
+        ))}
       </ul>
       <div className="cart-totals mt-auto">
         <div className="border-t border-b">
