@@ -10,7 +10,10 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Badge, Input } from "antd";
+import { useSelector } from "react-redux";
 const Header = () => {
+  const cart = useSelector((state) => state.cart);
+  console.log(cart.cartItems.length);
   return (
     <div className="border-b mb-6">
       <header className="py-4 px-6 flex justify-between items-center gap-10">
@@ -35,7 +38,11 @@ const Header = () => {
             <HomeOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Home</span>
           </Link>
-          <Badge count={5} offset={[6, -3]} className="md:flex hidden">
+          <Badge
+            count={cart.cartItems.length}
+            offset={[6, -3]}
+            className="md:flex hidden"
+          >
             <Link
               to={"/card"}
               className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
