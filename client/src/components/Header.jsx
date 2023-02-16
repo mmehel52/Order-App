@@ -40,7 +40,7 @@ const Header = () => {
           </Link>
           <Badge
             count={cart.cartItems.length}
-            offset={[6, -3]}
+            offset={[0, 0]}
             className="md:flex hidden"
           >
             <Link
@@ -76,13 +76,17 @@ const Header = () => {
           </Link>
           <Link
             to={"/"}
-            className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+            className="menu-link flex flex-col hover:text-[#40a9ff] transition- gap-y-1"
           >
             <LogoutOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Logout</span>
           </Link>
         </div>
-        <Badge count={5} offset={[6, -3]} className="md:hidden flex">
+        <Badge
+          count={cart.cartItems.length}
+          offset={[0, 0]}
+          className="md:hidden flex"
+        >
           <Link
             to={"/"}
             className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"

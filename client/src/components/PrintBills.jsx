@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal } from "antd";
-const PrintBills = ({ isModalOpen, setIsModalOpen }) => {
+const PrintBills = ({ isModalOpen, setIsModalOpen, customer }) => {
   return (
     <div>
       <Modal
@@ -34,9 +34,9 @@ const PrintBills = ({ isModalOpen, setIsModalOpen }) => {
                   <div className="text-md text-slate-500">
                     <p className="font-bold text-slate-700">Bill No</p>
 
-                    <p>00041</p>
+                    <p>000{Math.floor(Math.random() * 100)}</p>
                     <p className="font-bold text-slate-700">Date of Issue</p>
-                    <p>2022-11-21</p>
+                    <p>{customer.createdAt.substring(0, 10)}</p>
                   </div>
                   <div className="text-md text-slate-500 sm:block hidden">
                     <p className="font-bold text-slate-700">Terms</p>
