@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, message } from "antd";
 import React from "react";
 import {
   ClearOutlined,
@@ -6,7 +6,7 @@ import {
   MinusCircleOutlined,
 } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCart, increase, decrease } from "./../redux/cartSlice";
+import { deleteCart, increase, decrease, reset } from "./../redux/cartSlice";
 
 const CartTotals = () => {
   const cart = useSelector((state) => state.cart);
@@ -63,7 +63,7 @@ const CartTotals = () => {
                 </div>
               </li>
             ))
-          : "there are no products"}
+          : "there are no products..."}
       </ul>
       <div className="cart-totals mt-auto">
         <div className="border-t border-b">
@@ -85,7 +85,12 @@ const CartTotals = () => {
           </div>
         </div>
         <div className="py-4 px-2">
-          <Button type="primary" size="large" className="w-full">
+          <Button
+            type="primary"
+            size="large"
+            className="w-full"
+            disabled={cart.cartItems.length === 0}
+          >
             Create Order
           </Button>
           <Button
@@ -94,6 +99,13 @@ const CartTotals = () => {
             className="w-full mt-2 flex items-center justify-center"
             icon={<ClearOutlined />}
             danger
+            disabled={cart.cartItems.length === 0}
+            onClick={() => {
+              if (window.confirm("Are you sure?")) {
+                dispatch(reset());
+                message.success("Box has been cleaned.");
+              }
+            }}
           >
             Clear
           </Button>
