@@ -123,7 +123,6 @@ const CardPage = () => {
             <div className="flex justify-between">
               <span>KDV %{cart.tax}</span>
               <span className="text-red-600">
-                {" "}
                 {((cart.total * cart.tax) / 108).toFixed(2)}₺
               </span>
             </div>
