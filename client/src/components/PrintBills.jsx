@@ -36,7 +36,7 @@ const PrintBills = ({ isModalOpen, setIsModalOpen, customer }) => {
 
                     <p>000{Math.floor(Math.random() * 100)}</p>
                     <p className="font-bold text-slate-700">Date of Issue</p>
-                    <p>{customer.createdAt.substring(0, 10)}</p>
+                    <p>{customer?.createdAt.substring(0, 10)}</p>
                   </div>
                   <div className="text-md text-slate-500 sm:block hidden">
                     <p className="font-bold text-slate-700">Terms</p>
@@ -82,27 +82,34 @@ const PrintBills = ({ isModalOpen, setIsModalOpen, customer }) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="border-b border-slate-200">
-                        <td className="py-4 pr-3 text-center">
-                          <img
-                            src="https://termodizayn.com/thumb.php?p=./img/uploads/muhafazakosullari/icerik/49-elma1.jpg&h=434"
-                            alt=""
-                            className="w-12 h-12 object-cover "
-                          />
-                        </td>
-                        <td className="py-4 pr-3 ">
-                          <span className="font-medium">Elma</span>
-                        </td>
-                        <td className="py-4 pr-3 text-center">
-                          <span>5₺</span>
-                        </td>
-                        <td className="py-4 pr-3 text-center">
-                          <span>1</span>
-                        </td>
-                        <td className="py-4  text-end">
-                          <span>5.00₺</span>
-                        </td>
-                      </tr>
+                      {customer?.cartItems.map((item) => (
+                        <tr
+                          className="border-b border-slate-200"
+                          key={item._id}
+                        >
+                          <td className="py-4 pr-3 text-center">
+                            <img
+                              src={item.img}
+                              alt=""
+                              className="w-12 h-12 object-cover "
+                            />
+                          </td>
+                          <td className="py-4 pr-3 ">
+                            <span className="font-medium">{item.title}</span>
+                          </td>
+                          <td className="py-4 pr-3 text-center">
+                            <span>{item.price.toFixed(2)}₺</span>
+                          </td>
+                          <td className="py-4 pr-3 text-center">
+                            <span>{item.quantity}</span>
+                          </td>
+                          <td className="py-4  text-end">
+                            <span>
+                              {(item.price * item.quantity).toFixed(2)}₺
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                     <tfoot className="py">
                       <tr>
@@ -113,7 +120,7 @@ const PrintBills = ({ isModalOpen, setIsModalOpen, customer }) => {
                         </th>
                         <th className="text-right pt-4" scope="row">
                           <span className="font-normal text-slate-700">
-                            61₺
+                            {customer?.subTotal.toFixed(2)}₺
                           </span>
                         </th>
                       </tr>
@@ -125,7 +132,7 @@ const PrintBills = ({ isModalOpen, setIsModalOpen, customer }) => {
                         </th>
                         <th className="text-right pt-4" scope="row">
                           <span className="font-normal text-red-600">
-                            4.00₺
+                            {customer?.tax.toFixed(2)}₺
                           </span>
                         </th>
                       </tr>
@@ -137,7 +144,7 @@ const PrintBills = ({ isModalOpen, setIsModalOpen, customer }) => {
                         </th>
                         <th className="text-right pt-4" scope="row">
                           <span className="font-normal text-slate-700">
-                            61₺
+                            {customer?.totalAmount.toFixed(2)}₺
                           </span>
                         </th>
                       </tr>
