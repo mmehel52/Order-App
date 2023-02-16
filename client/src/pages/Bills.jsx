@@ -84,7 +84,7 @@ const BillPage = () => {
           bordered
           pagination={false}
           scroll={{
-            x: 1200,
+            x: 1000,
             y: 300,
           }}
         />
