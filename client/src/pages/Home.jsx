@@ -29,10 +29,10 @@ const Home = () => {
     <>
       <Header />
       <div className="home px-6 flex md:flex-row flex-col justify-between gap-10 md:pb-0 pb-24 h-screen">
-        <div className="categories  overflow-auto max-h-[calc(100vh112px)] md:pb-20 md:mb-10">
+        <div className="categories  overflow-auto max-h-[calc(100vh112px)] md:pb-20 md:mb-10 sm:min-h-[180px]">
           <Categories categories={categories} setCategories={setCategories} />
         </div>
-        <div className="products flex-[8] overflow-y-auto max-h-[calc(100vh_-_112px)] pb-10">
+        <div className="products flex-[8] overflow-y-auto max-h-[calc(100vh_-_112px)] pb-10 sm:min-h-[180px]">
           <Products categories={categories} setCategories={setCategories} />
         </div>
         <div className="car-wrapper  min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">
