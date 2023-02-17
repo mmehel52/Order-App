@@ -1,17 +1,32 @@
 import { PlusOutlined, EditOutlined } from "@ant-design/icons";
 import Add from "./Add";
 import Edit from "./Edit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 
-const Categories = ({ categories, setCategories }) => {
+const Categories = ({ categories, setCategories, setFiltered, products }) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [categoryTitle, setCategoryTitle] = useState("All");
+
+  useEffect(() => {
+    if (categoryTitle === "All") {
+      setFiltered(products);
+    } else {
+      setFiltered(products.filter((item) => item.category === categoryTitle));
+    }
+  }, [products, setFiltered, categoryTitle]);
 
   return (
     <ul className="flex gap-4 md:flex-col text-lg">
       {categories.map((item) => (
-        <li className="category-item" key={item._id}>
+        <li
+          className={`category-item ${
+            item.title === categoryTitle && "!bg-pink-700"
+          }`}
+          key={item._id}
+          onClick={() => setCategoryTitle(item.title)}
+        >
           <span>{item.title}</span>
         </li>
       ))}
