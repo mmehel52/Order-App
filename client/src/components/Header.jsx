@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   SearchOutlined,
   HomeOutlined,
@@ -11,9 +11,10 @@ import {
 } from "@ant-design/icons";
 import { Badge, Input, message } from "antd";
 import { useSelector } from "react-redux";
-const Header = () => {
+const Header = ({ setSearch }) => {
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const logOut = () => {
     if (window.confirm("Are you sure to exit?")) {
       localStorage.removeItem("posUser");
@@ -21,6 +22,7 @@ const Header = () => {
       message.success("Exit is succesfull");
     }
   };
+
   return (
     <div className="border-b mb-6">
       <header className="py-4 px-6 flex justify-between items-center gap-10">
@@ -29,12 +31,18 @@ const Header = () => {
             <h5 className="text-2x1 font-bold md:text-4x1">LOGO</h5>
           </Link>
         </div>
-        <div className="header-search flex-1 flex justify-center">
+        <div
+          className="header-search flex-1 flex justify-center"
+          onClick={(e) => {
+            pathname !== "/" && navigate("/");
+          }}
+        >
           <Input
             size="large"
             placeholder="Search product..."
             prefix={<SearchOutlined />}
             className="rounded-full max-w-[800px]"
+            onChange={(e) => setSearch(e.target.value.toLowerCase())}
           />
         </div>
         <div className="menu-links flex justify-between items-center gap-6 md:static fixed z-50 bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1">

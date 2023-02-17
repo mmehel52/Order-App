@@ -8,6 +8,7 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     const getCategories = async () => {
       try {
@@ -38,10 +39,9 @@ const Home = () => {
 
     getProducts();
   }, []);
-
   return (
     <>
-      <Header />
+      <Header setSearch={setSearch} />
       <div className="home px-6 flex md:flex-row flex-col justify-between gap-10 md:pb-0 pb-24 h-screen">
         <div className="categories  overflow-auto max-h-[calc(100vh112px)] md:pb-20 md:mb-10 min-h-[180px]">
           <Categories
@@ -57,6 +57,7 @@ const Home = () => {
             filtered={filtered}
             products={products}
             setProducts={setProducts}
+            search={search}
           />
         </div>
         <div className="car-wrapper  min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">

@@ -5,6 +5,7 @@ import Header from "../components/Header";
 const Statistics = () => {
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
+  const user = JSON.parse(localStorage.getItem("posUser"));
 
   useEffect(() => {
     asyncFetch();
@@ -86,7 +87,9 @@ const Statistics = () => {
       <div className="statistic-section">
         <h2 className="text-lg">
           Welcome
-          <span className="text-green-700 font-bold text-xl">Admin</span>
+          <span className="text-green-700 font-bold text-xl">
+            {user?.username}
+          </span>
         </h2>
         <div className="statistic-cards grid xl:grid-cols-4  md:grid-cols-2 my-10 md:gap-10 gap-4">
           <StatisticCard
@@ -111,10 +114,10 @@ const Statistics = () => {
           />
         </div>
         <div className="flex justify-between gap-10 lg:flex-row flex-col items-center">
-          <div className="lg:w-1/2 lg:h-full h-72">
+          <div className="lg:w-1/2 lg:h-72 h-72">
             <Area {...config} />
           </div>
-          <div className="lg:w-1/2 lg:h-full h-72">
+          <div className="lg:w-1/2 lg:h-72 h-72">
             <Pie {...config2} />
           </div>
         </div>

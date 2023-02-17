@@ -51,6 +51,7 @@ const Customers = () => {
             x: 1000,
             y: 300,
           }}
+          rowKey="_id"
         />
         <div className="cart-total flex justify-end mt-4"></div>
       </div>

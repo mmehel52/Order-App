@@ -38,6 +38,7 @@ const CardPage = () => {
       render: (text) => {
         return <span>{text.toFixed(2)}</span>;
       },
+      sorter: (a, b) => a.price - b.price,
     },
     {
       title: "Quantity",

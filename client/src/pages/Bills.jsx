@@ -53,6 +53,7 @@ const BillPage = () => {
       render: (text) => {
         return <span>{text}₺</span>;
       },
+      sorter: (a, b) => a.totalAmount - b.totalAmount,
     },
     {
       title: "Actions",
@@ -87,6 +88,7 @@ const BillPage = () => {
             x: 1000,
             y: 300,
           }}
+          rowKey="_id"
         />
       </div>
       <PrintBills
