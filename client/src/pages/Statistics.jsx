@@ -86,7 +86,7 @@ const Statistics = () => {
       <Header />
       <h1 className="text-4xl font-bold text-center mb-4">Statistics</h1>
       {data ? (
-        <div className="statistic-section">
+        <div className="statistic-section mb-10">
           <h2 className="text-lg">
             Welcome
             <span className="text-green-700 font-bold text-xl">
