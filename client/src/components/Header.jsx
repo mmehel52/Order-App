@@ -48,7 +48,9 @@ const Header = ({ setSearch }) => {
         <div className="menu-links flex justify-between items-center gap-6 md:static fixed z-50 bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1">
           <Link
             to={"/"}
-            className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+            className={`menu-link ${
+              pathname === "/" && "active"
+            } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
             <HomeOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Home</span>
@@ -60,7 +62,9 @@ const Header = ({ setSearch }) => {
           >
             <Link
               to={"/card"}
-              className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+              className={`menu-link ${
+                pathname === "/card" && "active"
+              } flex flex-col hover:text-[#40a9ff] transition-all`}
             >
               <ShoppingCartOutlined className="md:text-2x1 text-x1" />
 
@@ -69,14 +73,18 @@ const Header = ({ setSearch }) => {
           </Badge>
           <Link
             to={"/bills"}
-            className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+            className={`menu-link ${
+              pathname === "/bills" && "active"
+            } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
             <CopyOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Bills</span>
           </Link>
           <Link
             to={"/customers"}
-            className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+            className={`menu-link ${
+              pathname === "/customers" && "active"
+            } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
             <UserOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Customers</span>
@@ -84,13 +92,17 @@ const Header = ({ setSearch }) => {
 
           <Link
             to={"/statistics"}
-            className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+            className={`menu-link ${
+              pathname === "/statistics" && "active"
+            } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
             <BarChartOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Statistics</span>
           </Link>
           <div onClick={logOut}>
-            <Link className="menu-link flex flex-col hover:text-[#40a9ff] transition- gap-y-1">
+            <Link
+              className={`menu-link  flex flex-col hover:text-[#40a9ff] transition- gap-y-1`}
+            >
               <LogoutOutlined className="md:text-2x1 text-x1" />
               <span className="md:text-xs text-[10px]">Logout</span>
             </Link>
@@ -102,8 +114,10 @@ const Header = ({ setSearch }) => {
           className="md:hidden flex"
         >
           <Link
-            to={"/"}
-            className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+            to={"/card"}
+            className={`menu-link ${
+              pathname === "/card" && "active"
+            } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
             <ShoppingCartOutlined className="text-2x1 text-x1" />
 
