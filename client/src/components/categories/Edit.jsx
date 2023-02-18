@@ -10,11 +10,14 @@ const Edit = ({
   const [editingRow, setEditingRow] = useState("");
   const onFinish = (values) => {
     try {
-      fetch("http://localhost:5000/api/categories/update-category", {
-        method: "PUT",
-        body: JSON.stringify({ ...values, categoryId: editingRow._id }),
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-      });
+      fetch(
+        process.env.REACT_APP_SERVER_URL + "/api/categories/update-category",
+        {
+          method: "PUT",
+          body: JSON.stringify({ ...values, categoryId: editingRow._id }),
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+        }
+      );
       message.success("Category updated succesfully.");
       setCategories(
         categories.map((item) => {
@@ -32,11 +35,14 @@ const Edit = ({
   const deleteCategory = (id) => {
     if (window.confirm("Are you sure?")) {
       try {
-        fetch("http://localhost:5000/api/categories/delete-category", {
-          method: "DELETE",
-          body: JSON.stringify({ categoryId: id }),
-          headers: { "Content-type": "application/json; charset=UTF-8" },
-        });
+        fetch(
+          process.env.REACT_APP_SERVER_URL + "/api/categories/delete-category",
+          {
+            method: "DELETE",
+            body: JSON.stringify({ categoryId: id }),
+            headers: { "Content-type": "application/json; charset=UTF-8" },
+          }
+        );
         message.success("Category deleted succesfully.");
         setCategories(categories.filter((item) => item._id !== id));
       } catch (error) {
