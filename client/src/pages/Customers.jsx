@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "antd";
+import { Spin, Table } from "antd";
 import Header from "../components/Header";
 const Customers = () => {
   const [billItems, setBillItems] = useState("");
@@ -40,21 +40,28 @@ const Customers = () => {
   return (
     <div>
       <Header />
-      <div className="px-6">
-        <h1 className="text-4xl font-bold text-center mb-4">Customers</h1>
-        <Table
-          dataSource={billItems}
-          columns={columns}
-          bordered
-          pagination={false}
-          scroll={{
-            x: 1000,
-            y: 300,
-          }}
-          rowKey="_id"
+      <h1 className="text-4xl font-bold text-center mb-4">Customers</h1>
+      {billItems ? (
+        <div className="px-6">
+          <Table
+            dataSource={billItems}
+            columns={columns}
+            bordered
+            pagination={false}
+            scroll={{
+              x: 1000,
+              y: 300,
+            }}
+            rowKey="_id"
+          />
+          <div className="cart-total flex justify-end mt-4"></div>
+        </div>
+      ) : (
+        <Spin
+          size="large"
+          className="absolute top-1/2 h-screen w-screen flex  justify-center"
         />
-        <div className="cart-total flex justify-end mt-4"></div>
-      </div>
+      )}
     </div>
   );
 };

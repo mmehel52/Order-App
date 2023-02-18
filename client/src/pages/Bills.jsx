@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table, Button } from "antd";
+import { Table, Button, Spin } from "antd";
 import PrintBills from "../components/PrintBills";
 import Header from "../components/Header";
 const BillPage = () => {
@@ -77,20 +77,27 @@ const BillPage = () => {
   return (
     <div>
       <Header />
-      <div className="px-6">
-        <h1 className="text-4xl font-bold text-center mb-4">Bills</h1>
-        <Table
-          dataSource={billItems}
-          columns={columns}
-          bordered
-          pagination={false}
-          scroll={{
-            x: 1000,
-            y: 300,
-          }}
-          rowKey="_id"
+      <h1 className="text-4xl font-bold text-center mb-4">Bills</h1>
+      {billItems ? (
+        <div className="px-6">
+          <Table
+            dataSource={billItems}
+            columns={columns}
+            bordered
+            pagination={false}
+            scroll={{
+              x: 1000,
+              y: 300,
+            }}
+            rowKey="_id"
+          />
+        </div>
+      ) : (
+        <Spin
+          size="large"
+          className="absolute top-1/2 h-screen w-screen flex  justify-center"
         />
-      </div>
+      )}
       <PrintBills
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
