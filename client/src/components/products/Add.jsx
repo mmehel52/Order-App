@@ -81,7 +81,7 @@ const Add = ({
                 .toLowerCase()
                 .localeCompare((optionB?.title ?? "").toLowerCase())
             }
-            options={categories?.categories}
+            options={categories}
           />
         </Form.Item>
         <Form.Item className="flex justify-end mb-0">

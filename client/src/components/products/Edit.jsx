@@ -153,7 +153,7 @@ const Edit = () => {
         rowKey={"_id"}
         scroll={{
           x: 1000,
-          y: 600,
+          y: 400,
         }}
       />
       <Modal
