@@ -1,14 +1,14 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import {
-//   SearchOutlined,
-//   HomeOutlined,
-//   ShoppingCartOutlined,
-//   CopyOutlined,
-//   UserOutlined,
-//   BarChartOutlined,
-//   LogoutOutlined,
-// } from "@ant-design/icons";
+import {
+  SearchOutlined,
+  HomeOutlined,
+  ShoppingCartOutlined,
+  CopyOutlined,
+  UserOutlined,
+  BarChartOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
 import { Badge, Input, message } from "antd";
 import { useSelector } from "react-redux";
 const Header = ({ setSearch }) => {
@@ -40,7 +40,7 @@ const Header = ({ setSearch }) => {
           <Input
             size="large"
             placeholder="Search product..."
-            // prefix={<SearchOutlined />}
+            prefix={<SearchOutlined />}
             className="rounded-full max-w-[800px]"
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
           />
@@ -52,7 +52,7 @@ const Header = ({ setSearch }) => {
               pathname === "/" && "active"
             } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
-            {/* <HomeOutlined className="md:text-2x1 text-x1" /> */}
+            <HomeOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Home</span>
           </Link>
           <Badge
@@ -66,7 +66,7 @@ const Header = ({ setSearch }) => {
                 pathname === "/card" && "active"
               } flex flex-col hover:text-[#40a9ff] transition-all`}
             >
-              {/* <ShoppingCartOutlined className="md:text-2x1 text-x1" /> */}
+              <ShoppingCartOutlined className="md:text-2x1 text-x1" />
 
               <span className="md:text-xs text-[10px]">Box</span>
             </Link>
@@ -77,7 +77,7 @@ const Header = ({ setSearch }) => {
               pathname === "/bills" && "active"
             } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
-            {/* <CopyOutlined className="md:text-2x1 text-x1" /> */}
+            <CopyOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Bills</span>
           </Link>
           <Link
@@ -86,7 +86,7 @@ const Header = ({ setSearch }) => {
               pathname === "/customers" && "active"
             } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
-            {/* <UserOutlined className="md:text-2x1 text-x1" /> */}
+            <UserOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Customers</span>
           </Link>
 
@@ -96,14 +96,14 @@ const Header = ({ setSearch }) => {
               pathname === "/statistics" && "active"
             } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
-            {/* <BarChartOutlined className="md:text-2x1 text-x1" /> */}
+            <BarChartOutlined className="md:text-2x1 text-x1" />
             <span className="md:text-xs text-[10px]">Statistics</span>
           </Link>
           <div onClick={logOut}>
             <Link
               className={`menu-link  flex flex-col hover:text-[#40a9ff] transition- gap-y-1`}
             >
-              {/* <LogoutOutlined className="md:text-2x1 text-x1" /> */}
+              <LogoutOutlined className="md:text-2x1 text-x1" />
               <span className="md:text-xs text-[10px]">Logout</span>
             </Link>
           </div>
@@ -119,7 +119,7 @@ const Header = ({ setSearch }) => {
               pathname === "/card" && "active"
             } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
-            {/* <ShoppingCartOutlined className="text-2x1 text-x1" /> */}
+            <ShoppingCartOutlined className="text-2x1 text-x1" />
 
             <span className="md:text-xs text-[10px]">Box</span>
           </Link>

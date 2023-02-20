@@ -3,7 +3,7 @@ import { Table, Card, Button, Popconfirm } from "antd";
 import CreateBill from "../components/CreateBill";
 import Header from "../components/Header";
 import { useSelector, useDispatch } from "react-redux";
-// import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
+import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { increase, decrease, deleteCart } from "./../redux/cartSlice";
 
 const CardPage = () => {
@@ -51,7 +51,7 @@ const CardPage = () => {
               type="primary"
               size="small"
               className="w-full flex items-center justify-center rounded-full"
-              // icon={<PlusCircleOutlined />}
+              icon={<PlusCircleOutlined />}
               onClick={() => dispatch(increase(record))}
             />
             <span className="font-bold w-6 inline-block text-center">
@@ -61,7 +61,7 @@ const CardPage = () => {
               type="primary"
               size="small"
               className="w-full flex items-center justify-center rounded-full"
-              // icon={<MinusCircleOutlined />}
+              icon={<MinusCircleOutlined />}
               onClick={() => {
                 if (record.quantity === 1) {
                   if (window.confirm("The product is deleted?")) {
