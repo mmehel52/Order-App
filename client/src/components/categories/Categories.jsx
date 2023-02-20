@@ -1,4 +1,4 @@
-import { PlusOutlined, EditOutlined } from "@ant-design/icons";
+// import { PlusOutlined, EditOutlined } from "@ant-design/icons";
 import Add from "./Add";
 import Edit from "./Edit";
 import { useEffect, useState } from "react";
@@ -35,14 +35,14 @@ const Categories = ({ categories, setCategories, setFiltered, products }) => {
         className="category-item !bg-purple-800 hover:opacity-90"
         onClick={() => setIsAddModalOpen(true)}
       >
-        <PlusOutlined className="md:text-2xl" />
+        {/* <PlusOutlined className="md:text-2xl" /> */}
       </li>
       <li
         className="category-item !bg-purple-800 hover:opacity-90"
         onClick={() => setIsEditModalOpen(true)}
       >
-        <EditOutlined className="md:text-2xl" />
-      </li>
+        {/* <EditOutlined className="md:text-2xl" />
+      </li> */}
 
       <Add
         isAddModalOpen={isAddModalOpen}
