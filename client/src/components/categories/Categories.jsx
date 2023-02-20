@@ -41,8 +41,8 @@ const Categories = ({ categories, setCategories, setFiltered, products }) => {
         className="category-item !bg-purple-800 hover:opacity-90"
         onClick={() => setIsEditModalOpen(true)}
       >
-        {/* <EditOutlined className="md:text-2xl" />
-      </li> */}
+        {/* <EditOutlined className="md:text-2xl" /> */}
+      </li>
 
       <Add
         isAddModalOpen={isAddModalOpen}
