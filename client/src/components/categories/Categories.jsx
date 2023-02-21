@@ -18,12 +18,12 @@ const Categories = ({ categories, setCategories, setFiltered, products }) => {
   }, [products, setFiltered, categoryTitle]);
 
   return (
-    <ul className="flex gap-4 md:flex-col text-lg">
+    <ul className="flex  flex-col ">
       {categories.map((item) => (
         <li
           className={`category-item ${
-            item.title === categoryTitle && "!bg-pink-700"
-          }`}
+            item.title === categoryTitle && "!bg-gray-900"
+          } g`}
           key={item._id}
           onClick={() => setCategoryTitle(item.title)}
         >
@@ -32,13 +32,13 @@ const Categories = ({ categories, setCategories, setFiltered, products }) => {
       ))}
 
       <li
-        className="category-item !bg-purple-800 hover:opacity-90"
+        className="category-item !bg-gray-700 hover:opacity-90"
         onClick={() => setIsAddModalOpen(true)}
       >
         <PlusOutlined className="md:text-2xl" />
       </li>
       <li
-        className="category-item !bg-purple-800 hover:opacity-90"
+        className="category-item !bg-gray-700 hover:opacity-90"
         onClick={() => setIsEditModalOpen(true)}
       >
         <EditOutlined className="md:text-2xl" />
