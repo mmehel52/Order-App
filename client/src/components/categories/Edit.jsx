@@ -11,7 +11,7 @@ const Edit = ({
   const onFinish = (values) => {
     try {
       fetch(
-        process.env.REACT_APP_SERVER_URL + "/api/categories/update-category",
+        " https://order-app22.onrender.com/api/categories/update-category",
         {
           method: "PUT",
           body: JSON.stringify({ ...values, categoryId: editingRow._id }),
@@ -36,7 +36,7 @@ const Edit = ({
     if (window.confirm("Are you sure?")) {
       try {
         fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/categories/delete-category",
+          " https://order-app22.onrender.com/api/categories/delete-category",
           {
             method: "DELETE",
             body: JSON.stringify({ categoryId: id }),

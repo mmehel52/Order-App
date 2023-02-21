@@ -11,7 +11,7 @@ const Edit = () => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/products/get-all"
+          " https://order-app22.onrender.com/api/products/get-all"
         );
         const data = await res.json();
         setProducts(data);
@@ -26,7 +26,7 @@ const Edit = () => {
     const getCategories = async () => {
       try {
         const res = await fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/categories/get-all"
+          " https://order-app22.onrender.com/api/categories/get-all"
         );
         const data = await res.json();
         data &&
@@ -68,14 +68,11 @@ const Edit = () => {
   const deleteCategory = (id) => {
     if (window.confirm("Are you sure?")) {
       try {
-        fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/products/delete-product",
-          {
-            method: "DELETE",
-            body: JSON.stringify({ productId: id }),
-            headers: { "Content-type": "application/json; charset=UTF-8" },
-          }
-        );
+        fetch(" https://order-app22.onrender.com/api/products/delete-product", {
+          method: "DELETE",
+          body: JSON.stringify({ productId: id }),
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+        });
         message.success("Product deleted succesfully.");
         setProducts(products.filter((item) => item._id !== id));
       } catch (error) {
