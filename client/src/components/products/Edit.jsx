@@ -11,7 +11,7 @@ const Edit = () => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          " https://order-app22.onrender.com/api/products/get-all"
+          process.env.REACT_APP_SERVER_URL + "/api/products/get-all"
         );
         const data = await res.json();
         setProducts(data);
@@ -26,7 +26,7 @@ const Edit = () => {
     const getCategories = async () => {
       try {
         const res = await fetch(
-          " https://order-app22.onrender.com/api/categories/get-all"
+          process.env.REACT_APP_SERVER_URL + "/api/categories/get-all"
         );
         const data = await res.json();
         data &&

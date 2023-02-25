@@ -10,7 +10,7 @@ const Login = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        " https://order-app22.onrender.com/api/auth/login",
+        process.env.REACT_APP_SERVER_URL + "/api/auth/login",
         {
           method: "POST",
           body: JSON.stringify(values),

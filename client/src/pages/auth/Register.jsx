@@ -11,7 +11,7 @@ const Register = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        " https://order-app22.onrender.com/api/auth/register",
+        process.env.REACT_APP_SERVER_URL + "/api/auth/register",
         {
           method: "POST",
           body: JSON.stringify(values),

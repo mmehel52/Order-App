@@ -23,7 +23,7 @@ const Statistics = () => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          " https://order-app22.onrender.com/api/products/get-all"
+          process.env.REACT_APP_SERVER_URL + "/api/products/get-all"
         );
         const data = await res.json();
         setProducts(data);
