@@ -12,7 +12,7 @@ const Statistics = () => {
     asyncFetch();
   }, []);
   const asyncFetch = () => {
-    fetch(process.env.REACT_APP_SERVER_URL + "/api/bills/get-all")
+    fetch("https://order-app22.onrender.com/api/bills/get-all")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => {
@@ -23,7 +23,7 @@ const Statistics = () => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/products/get-all"
+          "https://order-app22.onrender.com/api/products/get-all"
         );
         const data = await res.json();
         setProducts(data);

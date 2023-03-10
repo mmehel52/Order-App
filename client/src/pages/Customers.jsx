@@ -7,7 +7,7 @@ const Customers = () => {
     const getBills = async () => {
       try {
         const res = await fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/bills/get-all"
+          "https://order-app22.onrender.com/api/bills/get-all"
         );
         const data = await res.json();
         setBillItems(data);

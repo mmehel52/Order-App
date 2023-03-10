@@ -11,7 +11,7 @@ const Edit = () => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/products/get-all"
+          "https://order-app22.onrender.com/api/products/get-all"
         );
         const data = await res.json();
         setProducts(data);
@@ -26,7 +26,7 @@ const Edit = () => {
     const getCategories = async () => {
       try {
         const res = await fetch(
-          process.env.REACT_APP_SERVER_URL + "/api/categories/get-all"
+          "https://order-app22.onrender.com/api/categories/get-all"
         );
         const data = await res.json();
         data &&
@@ -45,7 +45,7 @@ const Edit = () => {
 
   const onFinish = (values) => {
     try {
-      fetch(process.env.REACT_APP_SERVER_URL + "/api/products/update-product", {
+      fetch("https://order-app22.onrender.com/api/products/update-product", {
         method: "PUT",
         body: JSON.stringify({ ...values, productId: editingItem._id }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
