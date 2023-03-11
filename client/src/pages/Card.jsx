@@ -48,9 +48,8 @@ const CardPage = () => {
         return (
           <div className="flex items-center  ">
             <Button
-              type="primary"
               size="small"
-              className="w-full flex items-center justify-center rounded-full"
+              className="w-full flex items-center justify-center rounded-full bg-gray-700 text-white"
               icon={<PlusCircleOutlined />}
               onClick={() => dispatch(increase(record))}
             />
@@ -58,9 +57,8 @@ const CardPage = () => {
               {record.quantity}
             </span>
             <Button
-              type="primary"
               size="small"
-              className="w-full flex items-center justify-center rounded-full"
+              className="w-full flex items-center justify-center rounded-full bg-gray-700 text-white"
               icon={<MinusCircleOutlined />}
               onClick={() => {
                 if (record.quantity === 1) {
@@ -133,8 +131,7 @@ const CardPage = () => {
             </div>
             <Button
               size="large"
-              className="mt-4 w-full"
-              type="primary"
+              className="mt-4 w-full  bg-gray-700 text-white"
               onClick={() => setIsModalOpen(true)}
               disabled={cart.cartItems.length === 0}
             >

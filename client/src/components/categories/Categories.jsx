@@ -22,7 +22,9 @@ const Categories = ({ categories, setCategories, setFiltered, products }) => {
       {categories.map((item) => (
         <li
           className={`category-item ${
-            item.title === categoryTitle && "!bg-gray-900"
+            item.title === "All"
+              ? "!bg-red-500"
+              : item.title === categoryTitle && "!bg-red-500"
           } g`}
           key={item._id}
           onClick={() => setCategoryTitle(item.title)}

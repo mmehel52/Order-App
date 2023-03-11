@@ -15,7 +15,7 @@ const CartTotals = () => {
   const navigate = useNavigate();
   return (
     <div className="cart h-full max-h-[calc(100vh_-_90px)] flex flex-col">
-      <h2 className="bg-blue-600 text-center py-4 text-white font-bold tracking-wide">
+      <h2 className="bg-gray-700 text-center py-4 text-white font-bold tracking-wide">
         Products in Box
       </h2>
       <ul className="car-items px-2 flex flex-col gap-y-3 py-2 overflow-y-auto">
@@ -39,9 +39,8 @@ const CartTotals = () => {
                   </div>
                   <div className="flex items-center ">
                     <Button
-                      type="primary"
                       size="small"
-                      className="w-full flex items-center justify-center rounded-full"
+                      className="w-full flex items-center justify-center rounded-full bg-gray-700 text-white "
                       icon={<PlusCircleOutlined />}
                       onClick={() => dispatch(increase(item))}
                     />
@@ -49,9 +48,8 @@ const CartTotals = () => {
                       {item.quantity}
                     </span>
                     <Button
-                      type="primary"
                       size="small"
-                      className="w-full flex items-center justify-center rounded-full"
+                      className="w-full flex items-center justify-center rounded-full bg-gray-700 text-white"
                       icon={<MinusCircleOutlined />}
                       onClick={() => {
                         if (item.quantity === 1) {
@@ -90,9 +88,8 @@ const CartTotals = () => {
         </div>
         <div className="py-4 px-2">
           <Button
-            type="primary"
             size="large"
-            className="w-full"
+            className="w-full  bg-gray-700 text-white"
             disabled={cart.cartItems.length === 0}
             onClick={() => navigate("/card")}
           >

@@ -47,7 +47,7 @@ const Login = () => {
     <div className="h-screen">
       <div className="flex justify-between h-full">
         <div className="xl:px-20 px-10 w-full flex flex-col h-full justify-center relative">
-          <h1 className="text-center text-5xl font-bold mb-2">LOGO</h1>
+          <img src="/img/mm.png" className="max-w-[120px] mx-auto  " alt="" />
           <Form
             layout="vertical"
             onFinish={onFinish}
@@ -85,9 +85,8 @@ const Login = () => {
             </Form.Item>
             <Form.Item>
               <Button
-                type="primary"
                 htmlType="submit"
-                className="w-full"
+                className="w-full  bg-gray-700 text-white"
                 size="large"
                 loading={loading}
               >
