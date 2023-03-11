@@ -45,7 +45,7 @@ const Header = ({ setSearch }) => {
             onChange={(e) => setSearch(e.target.value.toLowerCase())}
           />
         </div>
-        <div className="menu-links flex justify-between items-center gap-6 md:static fixed z-50 bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1 text-white">
+        <div className="menu-links flex justify-between items-center gap-6 md:static fixed z-50 bottom-0 md:w-auto w-screen md:bg-transparent bg-white left-0 md:border-t-0 border-t md:px-0 px-4 py-1 text-[#40a9ff]">
           <Link
             to={"/"}
             className={`menu-link ${
@@ -66,9 +66,9 @@ const Header = ({ setSearch }) => {
                 pathname === "/card" && "active"
               } flex flex-col hover:text-[#40a9ff] transition-all`}
             >
-              <ShoppingCartOutlined className="md:text-2x1 text-x1 text-white" />
+              <ShoppingCartOutlined className="md:text-2x1 text-x1 text-[#40a9ff]" />
 
-              <span className="md:text-xs text-[10px] text-white">Box</span>
+              <span className="md:text-xs text-[10px] text-[#40a9ff]">Box</span>
             </Link>
           </Badge>
           <Link
@@ -119,9 +119,9 @@ const Header = ({ setSearch }) => {
               pathname === "/card" && "active"
             } flex flex-col hover:text-[#40a9ff] transition-all`}
           >
-            <ShoppingCartOutlined className="text-2x1 text-x1 text-white" />
+            <ShoppingCartOutlined className="text-2x1 text-x1 text-[#40a9ff]" />
 
-            <span className="md:text-xs text-[10px] text-white">Box</span>
+            <span className="md:text-xs text-[10px] text-[#40a9ff]">Box</span>
           </Link>
         </Badge>
       </header>
