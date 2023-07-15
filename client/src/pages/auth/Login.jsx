@@ -9,14 +9,11 @@ const Login = () => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const res = await fetch(
-        "https://order-app22.onrender.com/api/auth/login",
-        {
-          method: "POST",
-          body: JSON.stringify(values),
-          headers: { "Content-type": "application/json; charset=UTF-8" },
-        }
-      );
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      });
 
       const user = await res.json();
 
@@ -26,6 +23,7 @@ const Login = () => {
           JSON.stringify({
             username: user.username,
             email: user.email,
+            isAdmin: user.isAdmin,
           })
         );
         message.success("Sign in is succesfull.");

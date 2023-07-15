@@ -8,10 +8,12 @@ import {
   UserOutlined,
   BarChartOutlined,
   LogoutOutlined,
+  MehOutlined,
 } from "@ant-design/icons";
 import { Badge, Input, message } from "antd";
 import { useSelector } from "react-redux";
 const Header = ({ setSearch }) => {
+  const user = JSON.parse(localStorage.getItem("posUser"));
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -71,40 +73,54 @@ const Header = ({ setSearch }) => {
               <span className="md:text-xs text-[10px] text-[#40a9ff]">Box</span>
             </Link>
           </Badge>
-          <Link
-            to={"/bills"}
-            className={`menu-link ${
-              pathname === "/bills" && "active"
-            } flex flex-col hover:text-[#40a9ff] transition-all`}
-          >
-            <CopyOutlined className="md:text-2x1 text-x1" />
-            <span className="md:text-xs text-[10px]">Bills</span>
-          </Link>
-          <Link
-            to={"/customers"}
-            className={`menu-link ${
-              pathname === "/customers" && "active"
-            } flex flex-col hover:text-[#40a9ff] transition-all`}
-          >
-            <UserOutlined className="md:text-2x1 text-x1" />
-            <span className="md:text-xs text-[10px]">Customers</span>
-          </Link>
+          {user.isAdmin && (
+            <>
+              <Link
+                to={"/bills"}
+                className={`menu-link ${
+                  pathname === "/bills" && "active"
+                } flex flex-col hover:text-[#40a9ff] transition-all`}
+              >
+                <CopyOutlined className="md:text-2x1 text-x1" />
+                <span className="md:text-xs text-[10px]">Bills</span>
+              </Link>
+              <Link
+                to={"/customers"}
+                className={`menu-link ${
+                  pathname === "/customers" && "active"
+                } flex flex-col hover:text-[#40a9ff] transition-all`}
+              >
+                <UserOutlined className="md:text-2x1 text-x1" />
+                <span className="md:text-xs text-[10px]">Customers</span>
+              </Link>
 
-          <Link
-            to={"/statistics"}
-            className={`menu-link ${
-              pathname === "/statistics" && "active"
-            } flex flex-col hover:text-[#40a9ff] transition-all`}
-          >
-            <BarChartOutlined className="md:text-2x1 text-x1" />
-            <span className="md:text-xs text-[10px]">Statistics</span>
-          </Link>
+              <Link
+                to={"/statistics"}
+                className={`menu-link ${
+                  pathname === "/statistics" && "active"
+                } flex flex-col hover:text-[#40a9ff] transition-all`}
+              >
+                <BarChartOutlined className="md:text-2x1 text-x1" />
+                <span className="md:text-xs text-[10px]">Statistics</span>
+              </Link>
+            </>
+          )}
           <div onClick={logOut}>
             <Link
               className={`menu-link  flex flex-col hover:text-[#40a9ff] transition- gap-y-1`}
             >
               <LogoutOutlined className="md:text-2x1 text-x1" />
               <span className="md:text-xs text-[10px]">Logout</span>
+            </Link>
+          </div>
+          <div>
+            <Link
+              className={`menu-link  flex flex-col hover:text-[#40a9ff] transition- gap-y-1`}
+            >
+              <MehOutlined className="md:text-2x1 text-x1" />
+              <span className="md:text-xs text-[10px]">
+                {user.username.toUpperCase()}
+              </span>
             </Link>
           </div>
         </div>

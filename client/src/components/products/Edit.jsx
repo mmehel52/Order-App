@@ -10,9 +10,7 @@ const Edit = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await fetch(
-          "https://order-app22.onrender.com/api/products/get-all"
-        );
+        const res = await fetch("http://localhost:5000/api/products/get-all");
         const data = await res.json();
         setProducts(data);
       } catch (error) {
@@ -25,9 +23,7 @@ const Edit = () => {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const res = await fetch(
-          "https://order-app22.onrender.com/api/categories/get-all"
-        );
+        const res = await fetch("http://localhost:5000/api/categories/get-all");
         const data = await res.json();
         data &&
           setCategories(
@@ -45,7 +41,7 @@ const Edit = () => {
 
   const onFinish = (values) => {
     try {
-      fetch("https://order-app22.onrender.com/api/products/update-product", {
+      fetch("http://localhost:5000/api/products/update-product", {
         method: "PUT",
         body: JSON.stringify({ ...values, productId: editingItem._id }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -68,7 +64,7 @@ const Edit = () => {
   const deleteCategory = (id) => {
     if (window.confirm("Are you sure?")) {
       try {
-        fetch(" https://order-app22.onrender.com/api/products/delete-product", {
+        fetch(" http://localhost:5000/api/products/delete-product", {
           method: "DELETE",
           body: JSON.stringify({ productId: id }),
           headers: { "Content-type": "application/json; charset=UTF-8" },

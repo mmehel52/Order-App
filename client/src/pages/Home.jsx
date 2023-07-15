@@ -13,9 +13,7 @@ const Home = () => {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const res = await fetch(
-          "https://order-app22.onrender.com/api/categories/get-all"
-        );
+        const res = await fetch("http://localhost:5000/api/categories/get-all");
         const data = await res.json();
         data &&
           setCategories(
@@ -32,9 +30,7 @@ const Home = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await fetch(
-          "https://order-app22.onrender.com/api/products/get-all"
-        );
+        const res = await fetch("http://localhost:5000/api/products/get-all");
         const data = await res.json();
         setProducts(data);
       } catch (error) {
@@ -44,6 +40,7 @@ const Home = () => {
 
     getProducts();
   }, []);
+
   return (
     <>
       <Header setSearch={setSearch} />

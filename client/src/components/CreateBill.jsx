@@ -9,20 +9,17 @@ const CreateBill = ({ isModalOpen, setIsModalOpen }) => {
   const navigate = useNavigate();
   const onFinish = async (values) => {
     try {
-      const res = await fetch(
-        "https://order-app22.onrender.com/api/bills/add-bill",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            ...values,
-            subTotal: ((cart.total * 100) / 108).toFixed(2),
-            tax: ((cart.total * cart.tax) / 108).toFixed(2),
-            totalAmount: cart.total.toFixed(2),
-            cartItems: cart.cartItems,
-          }),
-          headers: { "Content-type": "application/json; charset=UTF-8" },
-        }
-      );
+      const res = await fetch("http://localhost:5000/api/bills/add-bill", {
+        method: "POST",
+        body: JSON.stringify({
+          ...values,
+          subTotal: ((cart.total * 100) / 108).toFixed(2),
+          tax: ((cart.total * cart.tax) / 108).toFixed(2),
+          totalAmount: cart.total.toFixed(2),
+          cartItems: cart.cartItems,
+        }),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      });
       if (res.status === 200) {
         message.success("The bill is created.");
         dispatch(reset());

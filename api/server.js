@@ -11,6 +11,7 @@ const productRoute = require("./routes/products.js");
 const billRoute = require("./routes/bills.js");
 const authRoute = require("./routes/auth.js");
 const userRoute = require("./routes/users.js");
+const uploadRouter = require("./routes/upload.js");
 dotenv.config();
 
 const connect = async () => {
@@ -31,6 +32,7 @@ app.use("/api/products", productRoute);
 app.use("/api/bills", billRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
+app.use("/api/upload", uploadRouter);
 
 app.listen(port, () => {
   connect();

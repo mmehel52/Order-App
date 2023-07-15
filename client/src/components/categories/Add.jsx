@@ -11,7 +11,7 @@ const Add = ({
 
   const onFinish = (values) => {
     try {
-      fetch("https://order-app22.onrender.com/api/categories/add-category", {
+      fetch("http://localhost:5000/api/categories/add-category", {
         method: "POST",
         body: JSON.stringify(values),
         headers: { "Content-type": "application/json; charset=UTF-8" },

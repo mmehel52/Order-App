@@ -1,5 +1,7 @@
-import { Button, Form, Input, message, Modal, Select } from "antd";
+import { Button, Form, Input, message, Modal, Select, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import React from "react";
+import { Image } from "cloudinary-react";
 
 const Add = ({
   isAddModalOpen,
@@ -12,7 +14,7 @@ const Add = ({
 
   const onFinish = (values) => {
     try {
-      fetch("https://order-app22.onrender.com/api/products/add-product", {
+      fetch("http://localhost:5000/api/products/add-product", {
         method: "POST",
         body: JSON.stringify(values),
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -33,7 +35,24 @@ const Add = ({
       console.log(error);
     }
   };
+  const cloudName = "REACT_APP_CLOUDINARY_CLOUD_NAME";
+  const uploadPreset = "REACT_APP_CLOUDINARY_UPLOAD_PRESET";
 
+  const uploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", uploadPreset);
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const file = await res.json();
+    console.log(file);
+  };
   return (
     <Modal
       title="Add New Product"
@@ -51,11 +70,15 @@ const Add = ({
         </Form.Item>
 
         <Form.Item
-          name="img"
-          label="Product Image"
-          rules={[{ required: true, message: "Product Image is required" }]}
+          name="upload"
+          label="Product Picture"
+          valuePropName="fileList"
+          rules={[{ required: true, message: "Product is required" }]}
+          extra=""
         >
-          <Input />
+          <Upload name="logo" action="/upload.do" listType="picture">
+            <Button icon={<UploadOutlined />}>Click to upload</Button>
+          </Upload>
         </Form.Item>
         <Form.Item
           name="price"

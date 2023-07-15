@@ -12,7 +12,7 @@ const Statistics = () => {
     asyncFetch();
   }, []);
   const asyncFetch = () => {
-    fetch("https://order-app22.onrender.com/api/bills/get-all")
+    fetch("http://localhost:5000/api/bills/get-all")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => {
@@ -22,9 +22,7 @@ const Statistics = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await fetch(
-          "https://order-app22.onrender.com/api/products/get-all"
-        );
+        const res = await fetch("http://localhost:5000/api/products/get-all");
         const data = await res.json();
         setProducts(data);
       } catch (error) {

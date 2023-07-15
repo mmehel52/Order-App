@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Products = ({ categories, filtered, products, setProducts, search }) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("posUser"));
 
   return (
     <div className="products-wrapper grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-4">
@@ -15,25 +16,30 @@ const Products = ({ categories, filtered, products, setProducts, search }) => {
         .map((item) => (
           <ProductItem item={item} key={item._id} />
         ))}
-      <div
-        className="product-item border hover:shadow-lg cursor-pointer transition-all select-none bg-gray-700 flex justify-center items-center hover:opacity-90 min-h-[180px]"
-        onClick={() => setIsAddModalOpen(true)}
-      >
-        <PlusOutlined className="text-white md:text-2xl" />
-      </div>
-      <div
-        className="product-item border hover:shadow-lg cursor-pointer transition-all select-none bg-gray-700 flex justify-center items-center hover:opacity-90 min-h-[180px]"
-        onClick={() => navigate("/products")}
-      >
-        <EditOutlined className="text-white md:text-2xl" />
-      </div>
-      <Add
-        isAddModalOpen={isAddModalOpen}
-        setIsAddModalOpen={setIsAddModalOpen}
-        categories={categories}
-        products={products}
-        setProducts={setProducts}
-      />
+      {user.isAdmin && (
+        <>
+          {" "}
+          <div
+            className="product-item border hover:shadow-lg cursor-pointer transition-all select-none bg-gray-700 flex justify-center items-center hover:opacity-90 min-h-[180px]"
+            onClick={() => setIsAddModalOpen(true)}
+          >
+            <PlusOutlined className="text-white md:text-2xl" />
+          </div>
+          <div
+            className="product-item border hover:shadow-lg cursor-pointer transition-all select-none bg-gray-700 flex justify-center items-center hover:opacity-90 min-h-[180px]"
+            onClick={() => navigate("/products")}
+          >
+            <EditOutlined className="text-white md:text-2xl" />
+          </div>
+          <Add
+            isAddModalOpen={isAddModalOpen}
+            setIsAddModalOpen={setIsAddModalOpen}
+            categories={categories}
+            products={products}
+            setProducts={setProducts}
+          />
+        </>
+      )}
     </div>
   );
 };

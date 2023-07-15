@@ -10,7 +10,7 @@ const Edit = ({
   const [editingRow, setEditingRow] = useState("");
   const onFinish = (values) => {
     try {
-      fetch("https://order-app22.onrender.com/api/categories/update-category", {
+      fetch("http://localhost:5000/api/categories/update-category", {
         method: "PUT",
         body: JSON.stringify({ ...values, categoryId: editingRow._id }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -32,14 +32,11 @@ const Edit = ({
   const deleteCategory = (id) => {
     if (window.confirm("Are you sure?")) {
       try {
-        fetch(
-          "https://order-app22.onrender.com/api/categories/delete-category",
-          {
-            method: "DELETE",
-            body: JSON.stringify({ categoryId: id }),
-            headers: { "Content-type": "application/json; charset=UTF-8" },
-          }
-        );
+        fetch("http://localhost:5000/api/categories/delete-category", {
+          method: "DELETE",
+          body: JSON.stringify({ categoryId: id }),
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+        });
         message.success("Category deleted succesfully.");
         setCategories(categories.filter((item) => item._id !== id));
       } catch (error) {

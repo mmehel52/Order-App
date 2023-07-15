@@ -6,9 +6,7 @@ const Customers = () => {
   useEffect(() => {
     const getBills = async () => {
       try {
-        const res = await fetch(
-          "https://order-app22.onrender.com/api/bills/get-all"
-        );
+        const res = await fetch("http://localhost:5000/api/bills/get-all");
         const data = await res.json();
         setBillItems(data);
       } catch (err) {
